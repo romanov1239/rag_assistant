@@ -1,16 +1,23 @@
-# This is a sample Python script.
+from rag import answer
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def main():
+    print("RAG-ассистент. Введи вопрос или 'exit'.")
+    while True:
+        q = input("\n> ").strip()
+        if q.lower() in {"exit", "quit"}:
+            break
+        if not q:
+            continue
+        print("\n" + answer(q))
+
+if __name__ == "__main__":
+    main()
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+'''
+Запуск
+pip install -r requirements.txt
+# положи свои .md/.txt/.pdf в data/
+python ingest.py
+python app.py
+'''
